@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <script type="application/javascript">
+    function draw() {
+	var ir,ig,ib,iz;
+	var ira,iga,iba,iza;
+	var ix,iy,iwidth,ilength;
+	var ixa,iya,iwidtha,ilengtha;
+	var pixColor1, pixColor2;
+
+      var canvas = document.getElementById('canvas');
+
+      if (canvas.getContext) {
+
+        var ctx = canvas.getContext('2d');
+
+
+	for (var i=0;i<24;i+=1){
+
+	ir=Math.round((Math.random() * 255) + 1); 
+	ig=Math.round((Math.random() * 255) + 1); 
+	ib=Math.round((Math.random() * 255) + 1);
+
+	ira=Math.round((Math.random() * 255) + 1); 
+	iga=Math.round((Math.random() * 255) + 1); 
+	iba=Math.round((Math.random() * 255) + 1);
+
+	pixColor1="rgba("+ir+","+ig+","+ib+","+1+")";
+	pixColor2="rgba("+ira+","+iba+","+iga+","+1+")";
+
+	ix=Math.round((Math.random() * 400) + 1); 
+	iy=Math.round((Math.random() * 400) + 1); 
+	ix1=Math.round((Math.random() * 400) + 1); 
+	iy1=Math.round((Math.random() * 400) + 1); 	
+	iwidth=Math.round((Math.random() * 50) + 1); 
+	ilength=Math.round((Math.random() * 50) + 1); 	
+
+
+        ctx.fillStyle = pixColor1;
+        ctx.fillRect(ix, iy, 50, 50);
+
+        ctx.fillStyle = pixColor2;
+        ctx.fillRect(ix1, iy1, 50, 50);
+
+	}
+      }
+    }
+  </script>
+ </head>
+ <body onload="draw();">
+   <canvas id="canvas" width="500" height="500"></canvas>
+ </body>
+</html>
