@@ -10,15 +10,16 @@
 	var ixa,iya,iwidtha,ilengtha;
 	var pixColor1, pixColor2;
 
-      var canvas = document.getElementById('canvas');
+      	var canvas = document.getElementById('canvas');
 
-      var isheight= screen.height; 
-      var iswidth= screen.width;
+	canvas.height=window.innerHeight;
+	canvas.width=window.innerWidth;
 
-	alert(isheight+" "+iswidth);
+     	var isheight= canvas.height; 
+     	var iswidth= canvas.width;
 
-
-	alert(window.innerWidth+" "+window.innerHeight);
+	//alert(isheight+" "+iswidth);
+	//alert(window.innerWidth+" "+window.innerHeight);
 
       if (canvas.getContext) {
 
