@@ -11,24 +11,14 @@
 
   <body>
     <canvas id="myCanvas" width="578" height="300"></canvas>
-
+    <body onload="nowredraw()">
     <script>
 
    	var canvas = document.getElementById('myCanvas');
       	var context = canvas.getContext('2d');
 
-
-      	function writeMessage(canvas, message) {
+      	function nowredraw() {
         var context = canvas.getContext('2d');
-        context.clearRect(0, 0, canvas.width, canvas.height);
-        context.font = '18pt Calibri';
-        context.fillStyle = 'black';
-        context.fillText(message, 10, 25);
-
-	context.fillStyle = "red";
-        context.fillRect(10, 10, 50, 50);
-
-
 	var ir,ig,ib,iz;
 	var ira,iga,iba,iza;
 	var irb,igb,ibb,izb;
@@ -44,64 +34,42 @@
      	isheight=canvas.height;
      	iswidth=canvas.width ;
 
-
 	for (var i=0;i<40;i+=1){
-
 	ir=Math.round((Math.random() * 255) + 1); 
 	ig=Math.round((Math.random() * 255) + 1); 
 	ib=Math.round((Math.random() * 255) + 1);
-
 	ira=Math.round((Math.random() * 255) + 1); 
 	iga=Math.round((Math.random() * 255) + 1); 
 	iba=Math.round((Math.random() * 255) + 1);
-
 	pixColor1="rgba("+ir+","+ig+","+ib+","+1+")";
 	pixColor2="rgba("+ira+","+iba+","+iga+","+0.5+")";
-
 	ix=Math.round((Math.random() * iswidth) + 1); 
 	iy=Math.round((Math.random() * isheight) + 1); 
 	ix1=Math.round((Math.random() * iswidth) + 1); 
 	iy1=Math.round((Math.random() * isheight) + 1); 	
 	iwidth=Math.round((Math.random() * 50) + 1); 
 	ilength=Math.round((Math.random() * 50) + 1); 	
-
-
         context.fillStyle = pixColor1;
         context.fillRect(ix, iy, 50, 50);
-
         context.fillStyle = pixColor2;
-        context.fillRect(ix1, iy1, 50, 50);
-	
+        context.fillRect(ix1, iy1, 50, 50);	
 	ix2=Math.round((Math.random() * iswidth) + 1); 
 	iy2=Math.round((Math.random() * isheight) + 1); 
-
 	irb=Math.round((Math.random() * 255) + 1); 
 	igb=Math.round((Math.random() * 255) + 1); 
 	ibb=Math.round((Math.random() * 255) + 1);
 	pixColor3="rgba("+irb+","+ibb+","+igb+","+0.5+")";
-
-
 	context.beginPath();
 	context.arc(ix2, iy2, 50, 0, 2 * Math.PI);
 	context.fillStyle = pixColor3;
 	context.fill();
+	}
 
-	}}
-
-      	function getMousePos(canvas, evt) {
-        var rect = canvas.getBoundingClientRect();
-        return {
-          x: evt.clientX - rect.left,
-          y: evt.clientY - rect.top
-        };
-      	}
+	}
    
 
       	canvas.addEventListener('mousedown', function(evt) {
-        var mousePos = getMousePos(canvas, evt);
-        var message = 'Mouse position: ' + mousePos.x + ',' + mousePos.y;
-        writeMessage(canvas, message); 
-      	}, false);
+	nowredraw();}, false);
 
 
 	
