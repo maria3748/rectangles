@@ -25,6 +25,7 @@
 	var ix,iy,iwidth,ilength;
 	var ix1,iy1,iwidth1,ilength1;
 	var ix2,iy2,iwidth2,ilength2;
+	var irad;
 	var pixColor1,pixColor2,pixColor3;
 	var isheight,iswidth;
 	var myVar;
@@ -34,14 +35,14 @@
      	isheight=canvas.height;
      	iswidth=canvas.width ;
 
-	for (var i=0;i<40;i+=1){
+	for (var i=0;i<200;i+=1){
 	ir=Math.round((Math.random() * 255) + 1); 
 	ig=Math.round((Math.random() * 255) + 1); 
 	ib=Math.round((Math.random() * 255) + 1);
 	ira=Math.round((Math.random() * 255) + 1); 
 	iga=Math.round((Math.random() * 255) + 1); 
 	iba=Math.round((Math.random() * 255) + 1);
-	pixColor1="rgba("+ir+","+ig+","+ib+","+1+")";
+	pixColor1="rgba("+ir+","+ig+","+ib+","+0.5+")";
 	pixColor2="rgba("+ira+","+iba+","+iga+","+0.5+")";
 	ix=Math.round((Math.random() * iswidth) + 1); 
 	iy=Math.round((Math.random() * isheight) + 1); 
@@ -50,17 +51,18 @@
 	iwidth=Math.round((Math.random() * 50) + 1); 
 	ilength=Math.round((Math.random() * 50) + 1); 	
         context.fillStyle = pixColor1;
-        context.fillRect(ix, iy, 50, 50);
+        context.fillRect(ix, iy, 30, 30);
         context.fillStyle = pixColor2;
-        context.fillRect(ix1, iy1, 50, 50);	
+        context.fillRect(ix1, iy1, 10, 10);	
 	ix2=Math.round((Math.random() * iswidth) + 1); 
-	iy2=Math.round((Math.random() * isheight) + 1); 
+	iy2=Math.round((Math.random() * isheight) + 1);
 	irb=Math.round((Math.random() * 255) + 1); 
 	igb=Math.round((Math.random() * 255) + 1); 
 	ibb=Math.round((Math.random() * 255) + 1);
 	pixColor3="rgba("+irb+","+ibb+","+igb+","+0.5+")";
 	context.beginPath();
-	context.arc(ix2, iy2, 50, 0, 2 * Math.PI);
+	irad=Math.round((Math.random() * 100) + 1); 	
+	context.arc(ix2, iy2, irad, 0, 2 * Math.PI);
 	context.fillStyle = pixColor3;
 	context.fill();
 	}
